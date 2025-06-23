@@ -1,0 +1,15 @@
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const connectdb = require('./config/db');
+const zoneRoutes = require('./routes/zoneRoutes');
+const path = require('path');
+dotenv.config();
+connectdb();
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use('/uploads',express.static(path.join(__dirname,'uploads')));
+app.use('/api/zones',zoneRoutes);
+const PORT = process.env.PORT;
+app.listen(PORT,()=>console.log('server is running port 6500'));
