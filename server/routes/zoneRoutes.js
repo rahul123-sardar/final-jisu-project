@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const upload = require('../middleware/upload');
-const {getzone,createzone} = require('../controllers/zoneController');
+const upload = require('../middleware/upload'); // Ensure this is your multer config
+const { getzone, createzone } = require('../controllers/zoneController');
 
+// Route to create a new zone (with image upload)
+router.post('/', upload.single('image'), createzone);
 
-router.post('/',upload.single('image'),createzone);
-router.get('/',getzone);
+// Route to get all zones
+router.get('/', getzone);
 
 module.exports = router;
