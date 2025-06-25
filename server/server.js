@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const connectdb = require('./config/db');
 const zoneRoutes = require('./routes/zoneRoutes');
+const authRoutes = require('./routes/authRoutes');
 const path = require('path');
 
 dotenv.config();         // Load environment variables
@@ -19,6 +20,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // API routes
 app.use('/api/zones', zoneRoutes);
+app.use('/api/auth',authRoutes);
 
 // Port setup
 const PORT = process.env.PORT || 6500;
