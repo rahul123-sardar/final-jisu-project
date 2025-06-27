@@ -10,17 +10,18 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import PrivateRoute from './utils/PrivateRoute';
 import Dashboard from './pages/Dashboard';
+import { useState } from 'react';
 const App = () => {
-
+const [searchterm,setSearchterm] = useState('');
   return <>
     <BrowserRouter>
-      <Header />
+      <Header onSearch={setSearchterm} />
       <Routes>
         <Route path='/' element={<Register />} ></Route>
         <Route path='/login' element={<Login />} ></Route>
         <Route element={<PrivateRoute />}>
           <Route path='/dashboard' element={<Dashboard />}></Route>
-          <Route path='/home' element={<Home />} ></Route>
+          <Route path='/home' element={<Home searchterm={searchterm} />} ></Route>
           <Route path='/about' element={<About name="raj" city="kolkata" />} ></Route>
           <Route path='/contact' element={<Contact />} ></Route>
         </Route>
