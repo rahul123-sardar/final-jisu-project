@@ -27,7 +27,8 @@ const Header = ({onSearch}) => {
                  <li class="nav-item">
                 <Link to="/dashboard" class="nav-link">Dashboard</Link>|{''}
                 </li>
-                <li class="nav-item active">
+                
+                <li class="nav-item">
                   <Link class="nav-link" to="/home">Home <span class="sr-only">(current)</span></Link>
                 </li>
                 <li class="nav-item">
@@ -45,7 +46,9 @@ const Header = ({onSearch}) => {
           }
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" 
+          aria-label="Search" 
+            id="search" 
           onChange={(e)=>onSearch(e.target.value)}
            />
           

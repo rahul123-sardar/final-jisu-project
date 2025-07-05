@@ -1,11 +1,13 @@
 import React,{useState,useEffect} from 'react'
+import { Link } from 'react-router-dom';
 
 const Cardlist = ({data}) => {
+  
   const [totalcityes,setTotalcityes] = useState(0);
   useEffect(()=>{
    setTotalcityes(data.length);
   },[data]);
-  return <>
+  return (
   <div className='row'>
     <div className='text-primary'>Total Cities:{totalcityes}</div>
   {
@@ -16,14 +18,18 @@ const Cardlist = ({data}) => {
         <div className='card-body'>
         <h5 className='card-title'>{x.title}</h5>
         <p className='card-text'>{x.desc}</p>
-        <button className='btn btn-danger'>View City</button>
+        <Link to={`/city/${x.id}`} className="btn btn-danger">
+                View City
+              </Link>
         </div>  
         </div>
      </div>   
     ))
 }
 </div>
- </>
-}
+ 
+);
+ 
+};
 
 export default Cardlist

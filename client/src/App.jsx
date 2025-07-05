@@ -10,6 +10,8 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import PrivateRoute from './utils/PrivateRoute';
 import Dashboard from './pages/Dashboard';
+import  './App.css'; // Import your CSS file
+
 import { useState } from 'react';
 const App = () => {
 const [searchterm,setSearchterm] = useState('');
@@ -21,6 +23,8 @@ const [searchterm,setSearchterm] = useState('');
         <Route path='/login' element={<Login />} ></Route>
         <Route element={<PrivateRoute />}>
           <Route path='/dashboard' element={<Dashboard />}></Route>
+
+          {/* Add more private routes as needed */}
           <Route path='/home' element={<Home searchterm={searchterm} />} ></Route>
           <Route path='/about' element={<About name="raj" city="kolkata" />} ></Route>
           <Route path='/contact' element={<Contact />} ></Route>
@@ -33,4 +37,4 @@ const [searchterm,setSearchterm] = useState('');
   </>
 }
 
-export default App
+export default App;
